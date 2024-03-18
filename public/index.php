@@ -1,7 +1,7 @@
 <?php
 
 $availableRoutes = [
-	'homepage'
+	'homepage', 'page_dpe'
 ];
 
 $route = 'homepage';
