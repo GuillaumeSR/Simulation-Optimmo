@@ -16,5 +16,6 @@
     <main>
         <?php require '../src/controllers/' . $route . '_controller.php'; ?>
     </main>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>
