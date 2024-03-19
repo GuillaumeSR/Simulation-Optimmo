@@ -11,7 +11,7 @@
     <header>
         <nav>
             <img src="https://app.optimmo-energies.com/assets/optimmo-logo.518c2cc5.svg" class="logo"></img>
-            <button id="settings-btn">Paramètres</button>
+            <button id="settings-btn">Paramètres<i class="ri-settings-3-line"></button>
             <div id="settings-container">
                 <p>Choisissez la couleur de fond :</p>
                 <button class="bg-white-btn">Blanc</button>
@@ -28,11 +28,14 @@
                 <button class="text-white-btn">Blanc</button>
                 <button class="text-black-btn">Noir</button>
             </div>
+
         </nav>
     </header>
+    
     <main>
         <?php require '../src/controllers/' . $route . '_controller.php'; ?>
     </main>
+
 
     <script>
         var settingsContainer = document.getElementById('settings-container');
@@ -114,5 +117,8 @@
         });
 
     </script>
+
+    <script src="../assets/js/script.js"></script>
+
 </body>
 </html>
