@@ -179,3 +179,30 @@ width: 100%;
     display: flex;
     justify-content: space-between;
 }
+.background-energie {
+    background-color: white;
+    padding: 1rem;   
+}
+.label-energies {
+    display: flex;
+    flex-direction: column;
+}
+.dpe-label {
+    color: black;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 19px;
+}
+.circle-info {
+    height: 7rem;
+    background-color: #174e7f;
+    width: 7rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.letter {
+    color: white;
+}
