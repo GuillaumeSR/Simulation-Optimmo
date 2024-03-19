@@ -1,73 +1,137 @@
 <?php
 $_POST['ademe_number'] = '2251E2193714Q' ;
-$_POST['api_token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjb2RhX3NjaG9vbF9zdHVkZW50IiwiZXhwIjoxNzEwNzgxNTc4fQ._BEEJ5oeq6CawxXMtww13M6Q99I78XvO-q2ccjA1tVw' ;
+$_POST['username'] = '';
+$_POST['password'] = '';
 ?>
 
-<p>Votre situation DPE au :</p>
-<div id='adresse'></div>
-<br>
-<div id='dpe_nbr'></div>
-<br>
+<div class="background-homepage">
+  <div>
+    <p>Vos scénario sont prêts !</p>
+    <br>
+    <p>Pour votre bien au : <span id='adresse'></span></p>
+    <br>
+    <p>La note de votre logement est <span id='note'></span></p> 
+  </div>
+  <div class="container-info">
+    <div>
+      <p>Votre étiquette énergie</p>
+      <p><span id='score_dpe'></span> kWh/m²/an</p>
+      <p><span id='score_ges'></span> kg CO2/m²/an</p>
+      <svg viewbox="0 0 209 24" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="15" height="3" />
+      </svg>
+    </div>
+    <div>
+      <p>Schéma de déperditions de chaleur</p>
+      <p><span id="ventilation"></span></p>
+      <p><span id="toit_plafond"></span></p>
+      <p><span id="murs"></span></p>
+      <p><span id="portes_fenetres"></span></p>
+      <p><span id="ponts_thermiques"></span></p>
+      <p><span id="sols"></span></p>
+    </div>
+  </div>
+</div>
+
 <div id='calcul'></div>
 <br>
 
 <script>
-  fetch('https://dpe-api-service-dev-xfyprtzkyq-ew.a.run.app/trouve_adresse/<?php echo $_POST['ademe_number'] ?>', {
-  headers: {
-    'accept': 'application/json',
-    'Authorization': 'Bearer <?php echo $_POST['api_token'] ?>'
-  }
-  })
-  .then((response) => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error("NETWORK RESPONSE ERROR");
-    }
-  })
-  .then(data => {
-    console.log(data);
-    displayAdresse(data)
-  })
-  .catch((error) => console.error("FETCH ERROR:", error));
+  var token_;
 
-  fetch('https://dpe-api-service-dev-xfyprtzkyq-ew.a.run.app/trouve_info/<?php echo $_POST['ademe_number'] ?>', {
-  headers: {
-    'accept': 'application/json',
-    'Authorization': 'Bearer <?php echo $_POST['api_token'] ?>'
-  }
-  })
-  .then((response) => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error("NETWORK RESPONSE ERROR");
-    }
-  })
-  .then(data => {
-    console.log(data);
-    displayDpeNbr(data)
-  })
-  .catch((error) => console.error("FETCH ERROR:", error));
-
-  fetch('https://dpe-api-service-dev-xfyprtzkyq-ew.a.run.app/calcul_dpe/<?php echo $_POST['ademe_number'] ?>', {
+  async function fetchToken() {
+    const result = await fetch('https://dpe-api-service-dev-xfyprtzkyq-ew.a.run.app/token', {
+    method: 'POST',
     headers: {
       'accept': 'application/json',
-      'Authorization': 'Bearer <?php echo $_POST['api_token'] ?>'
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: 'grant_type=&username=<?php echo $_POST['username'] ?>&password=<?php echo $_POST['password'] ?>&scope=&client_id=&client_secret='
+    })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("NETWORK RESPONSE ERROR");
+      }
+    })
+    .then(data => {
+      token = data.access_token;
+    })
+    .catch((error) => console.error("FETCH ERROR:", error));
+    return token;
+  }
+
+  
+
+  async function fetchAdresse(token) {
+    const result = await fetch('https://dpe-api-service-dev-xfyprtzkyq-ew.a.run.app/trouve_adresse/<?php echo $_POST['ademe_number'] ?>', {
+    headers: {
+      'accept': 'application/json',
+      'Authorization': 'Bearer '+token
     }
-  })
-  .then((response) => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error("NETWORK RESPONSE ERROR");
+    })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("NETWORK RESPONSE ERROR");
+      }
+    })
+    .then(data => {
+      console.log(data);
+      displayAdresse(data)
+    })
+    .catch((error) => console.error("FETCH ERROR:", error));
+  }
+
+  async function fetchDpeNbr(token) {
+    const result = await fetch('https://dpe-api-service-dev-xfyprtzkyq-ew.a.run.app/trouve_info/<?php echo $_POST['ademe_number'] ?>', {
+    headers: {
+      'accept': 'application/json',
+      'Authorization': 'Bearer '+token
     }
+    })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("NETWORK RESPONSE ERROR");
+      }
+    })
+    .then(data => {
+      console.log(data);
+      displayDpeNbr(data)
+    })
+    .catch((error) => console.error("FETCH ERROR:", error));
+  }
+
+  async function fetchCalcul(token) {
+    const result = await fetch('https://dpe-api-service-dev-xfyprtzkyq-ew.a.run.app/calcul_dpe/<?php echo $_POST['ademe_number'] ?>', {
+    headers: {
+      'accept': 'application/json',
+      'Authorization': 'Bearer '+token
+    }
+    })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("NETWORK RESPONSE ERROR");
+      }
+    })
+    .then(data => {
+      console.log(data);
+      displayCalcul(data)
+    })
+    .catch((error) => console.error("FETCH ERROR:", error));
+  }
+
+  fetchToken().then((r) => {
+    fetchAdresse(r);
+    fetchDpeNbr(r);
+    fetchCalcul(r);
   })
-  .then(data => {
-    console.log(data);
-    displayCalcul(data)
-  })
-  .catch((error) => console.error("FETCH ERROR:", error));
 
   function displayAdresse(data) {
     const adresse = data.adresse;
@@ -89,8 +153,24 @@ $_POST['api_token'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjb2RhX3Nj
     const deperdition_pont_thermique = data.deperdition_pont_thermique;
     const deperdition_menuiserie = data.deperdition_menuiserie;
 
-    const dpe_nbrDiv = document.getElementById("dpe_nbr");
-    dpe_nbrDiv.innerHTML = classe_dpe + ' ' + score_dpe + ' ' + classe_ges + ' ' + score_ges;
+    const note_dpeSpan = document.getElementById("note");
+    note_dpeSpan.innerHTML = classe_dpe
+    const score_dpeSpan = document.getElementById("score_dpe");
+    score_dpeSpan.innerHTML = score_dpe
+    const score_gesSpan = document.getElementById("score_ges");
+    score_gesSpan.innerHTML = score_ges
+    const ventilationSpan = document.getElementById("ventilation");
+    ventilationSpan.innerHTML = deperdition_renouvellement_air
+    const toit_plafondSpan = document.getElementById("toit_plafond");
+    toit_plafondSpan.innerHTML = deperdition_plancher_haut
+    const mursSpan = document.getElementById("murs");
+    mursSpan.innerHTML = deperdition_mur
+    const portes_fenetresSpan = document.getElementById("portes_fenetres");
+    portes_fenetresSpan.innerHTML = deperdition_menuiserie
+    const ponts_thermiquesSpan = document.getElementById("ponts_thermiques");
+    ponts_thermiquesSpan.innerHTML = deperdition_pont_thermique
+    const solsSpan = document.getElementById("sols");
+    solsSpan.innerHTML = deperdition_plancher_bas
   }
 
   function displayCalcul(data) {

@@ -174,3 +174,8 @@ border: 1px solid #ccc;
 border-radius: 5px;
 width: 100%;
 }
+
+.container_info {
+    display: flex;
+    justify-content: space-between;
+}
