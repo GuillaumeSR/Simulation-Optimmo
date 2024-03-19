@@ -1,7 +1,9 @@
 <?php
 
+session_start();
+
 $availableRoutes = [
-	'homepage'
+	'homepage', 'page_dpe', 'infos_dpe'
 ];
 
 $route = 'homepage';
