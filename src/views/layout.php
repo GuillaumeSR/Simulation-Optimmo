@@ -10,7 +10,7 @@
 <body>
     <header>
         <nav>
-            <img src="https://app.optimmo-energies.com/assets/optimmo-logo.518c2cc5.svg" class="logo"></img>
+            <a href="?page=homepage"><img src="https://app.optimmo-energies.com/assets/optimmo-logo.518c2cc5.svg" class="logo"></img></a>
             <button id="settings-btn">Paramètres</button>
             <div id="settings-container">
                 <p>Choisissez la couleur de fond :</p>
