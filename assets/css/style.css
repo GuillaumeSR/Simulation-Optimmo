@@ -175,3 +175,7 @@ width: 100%;
     border-radius: 5px;
     cursor: pointer;
 }
+.container_info {
+    display: flex;
+    justify-content: space-between;
+}
