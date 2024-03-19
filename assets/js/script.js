@@ -178,9 +178,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-
-
 var settingsContainer = document.getElementById('settings-container');
 var bgWhiteBtn = document.querySelector('.bg-white-btn');
 var bgBlackBtn = document.querySelector('.bg-black-btn');
@@ -270,3 +267,4 @@ document.querySelector('.text-black-btn').addEventListener('click', function() {
 // }
 
 // form.addEventListener("submit", ademeSubmit)
+
