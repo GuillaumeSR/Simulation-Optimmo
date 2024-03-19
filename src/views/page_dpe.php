@@ -1,76 +1,15 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Optimmo</title>
-  <style>
-    .container {
-      display: flex;
-      justify-content: space-between;
-    }
-    .left-div {
-      width: 45%;
-      margin-left: 20px; 
-    }
-    .right-div {
-      width: 45%; 
-      background-color: #04755a;
-      color: #fff;
-    }
-    .right-div img {
-      display: block;
-      margin: 0 auto; 
-      max-width: 100%;
-      height: auto;
-    }
-    body {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
-  padding: 20px;
-}
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $ademeNumber = $_POST["ademe_number"];
 
-p {
-  margin-bottom: 20px;
-}
+    $_SESSION["ademeNumber"] = $ademeNumber;
 
-a {
-  color: #007bff;
-  text-decoration: none;
+    header("Location: ?page=infos_dpe");
+    exit();
 }
+?>
 
-a:hover {
-  text-decoration: underline;
-}
 
-button, input[type="submit"] {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover, input[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-input[type="file"] {
-  margin-top: 5px;
-}
-
-input[type="text"] {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-}
-  </style>
-</head>
 <body>
   <h1></h1>
   <div class="container">
@@ -85,7 +24,7 @@ input[type="text"] {
         <input type="file" id="dpe-file" name="dpe-file">
         <button type="submit">Envoyer</button>
       </form>
-      <form action="ademe.php" method="post" onsubmit="saveAdemeNumber()">
+      <form action="?page=infos_dpe" method="post">
         <label for="ademe-number">Je rentre mon numéro Ademe</label>
         <input type="text" id="ademe_number" name="ademe_number">
         <button type="submit">Valider</button>
@@ -103,12 +42,5 @@ input[type="text"] {
       </p>
     </div>
   </div>
-
-  <script>
-    function saveAdemeNumber() {
-      var ademeNumber = document.getElementById("ademe_number").value;
-      localStorage.setItem("ademeNumber", ademeNumber);
-    }
-  </script>
 </body>
 </html>
