@@ -11,33 +11,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <h1></h1>
+<div class="background-homepage">
 <div class="container">
   <div class="left-div">
-  <span><a href="?page=homepage">retours</a></span>
+  <a href="?page=homepage">retours</a>
     <ul>
-      <li>J'ai déjà mon DPE</li>
-      <li>J'importe mon DPE</li>
+    <span><li>J'ai déjà mon DPE</li></span>
+    <span><li>J'importe mon DPE</li></span>
     </ul>
     <form action="import.php" method="post" enctype="multipart/form-data">
-      <label for="dpe-file">Importer ou déposer le document (Format .pdf, maximum 10 Mo)</label>
+    <span><label for="dpe-file">Importer ou déposer le document (Format .pdf, maximum 10 Mo)</label></span>
       <input type="file" id="dpe-file" name="dpe-file">
-      <button type="submit">Envoyer</button>
+      <button class="btn-continue" type="submit">Envoyer</button>
     </form>
     <form action="?page=infos_dpe" method="post" id="form_submit">
-      <label for="ademe-number">Je rentre mon numéro Ademe</label>
+    <span><label for="ademe-number">Je rentre mon numéro Ademe</label></span>
       <input type="text" id="ademe_number" name="ademe_number">
-      <button type="submit">Valider</button>
+      <button class="btn-continue" type="submit">Valider</button>
     </form>
     <a href="#">Où trouver mon numéro Ademe ?</a>
   </div>
   <div class="right-div">
     <img src="https://app.optimmo-energies.com/assets/building-home.e427e51d.jpg" alt="Building Home">
-    <p>
+    <span>
       Vous êtes bien accompagnés<br>
       Optimmo utilise votre DPE pour récupérer les données énergétiques de votre bien et calculer au plus juste les scénarios de travaux optimisés.<br>
       Moteur de calcul de DPE agréé par l'Etat<br>
       Vraies bases de données de travaux pour chiffrer au plus juste<br>
       Algorithme d'optimisation des coûts des travaux<br>
-    </p>
+    </span>
   </div>
+</div>
 </div>
