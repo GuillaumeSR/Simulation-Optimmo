@@ -85,7 +85,7 @@ h3 {
 .btn-continue {
     width: 140px;
     height: 60px;
-    background: #07755A;
+    background: #619E89;
     border: none;
     color: white;
     border-radius: 10px;
@@ -135,22 +135,17 @@ font-family: Arial, sans-serif;
 font-size: 16px;
 line-height: 1.5;
 color: #333;
-padding: 20px;
 }
-
 p {
 margin-bottom: 20px;
 }
-
 a {
 color: #007bff;
 text-decoration: none;
 }
-
 a:hover {
 text-decoration: underline;
 }
-
 button, input[type="submit"] {
 background-color: #007bff;
 color: #fff;
@@ -159,22 +154,27 @@ padding: 5px 10px;
 border-radius: 5px;
 cursor: pointer;
 }
-
 button:hover, input[type="submit"]:hover {
 background-color: #0056b3;
 }
-
 input[type="file"] {
 margin-top: 5px;
 }
-
 input[type="text"] {
 padding: 5px;
 border: 1px solid #ccc;
 border-radius: 5px;
 width: 100%;
 }
-
+#parametres:hover {
+    background-color: #0056b3;
+}
+.parametres-menu button {
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .container_info {
     display: flex;
     justify-content: space-between;
