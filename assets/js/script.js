@@ -178,6 +178,87 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+
+
+var settingsContainer = document.getElementById('settings-container');
+var bgWhiteBtn = document.querySelector('.bg-white-btn');
+var bgBlackBtn = document.querySelector('.bg-black-btn');
+var bgDefaultBtn = document.querySelector('.bg-default-btn');
+var bgWhiteContainerBtn = document.querySelector('.bg-white-container-btn');
+var bgBlackContainerBtn = document.querySelector('.bg-black-container-btn');
+var bgGreenBtn = document.querySelector('.bg-green-btn');
+var bgRedBtn = document.querySelector('.bg-red-btn');
+var bgBlueBtn = document.querySelector('.bg-blue-btn');
+var textWhiteBtn = document.querySelector('.text-white-btn');
+var textBlackBtn = document.querySelector('.text-black-btn');
+
+document.getElementById('settings-btn').addEventListener('click', function() {
+    if (settingsContainer.style.display === 'block') {
+        settingsContainer.style.display = 'none';
+    } else {
+        settingsContainer.style.display = 'block';
+    }
+});
+
+bgWhiteBtn.addEventListener('click', function() {
+    document.body.style.backgroundColor = 'white';
+    settingsContainer.style.display = 'none'; 
+});
+
+bgBlackBtn.addEventListener('click', function() {
+    document.body.style.backgroundColor = 'black';
+    settingsContainer.style.display = 'none'; 
+});
+
+bgDefaultBtn.addEventListener('click', function() {
+    document.querySelector('.background-homepage').style.backgroundColor = ''; 
+    settingsContainer.style.display = 'none'; 
+});
+
+bgWhiteContainerBtn.addEventListener('click', function() {
+    document.querySelector('.background-homepage').style.backgroundColor = 'white';
+    settingsContainer.style.display = 'none'; 
+});
+
+bgBlackContainerBtn.addEventListener('click', function() {
+    document.querySelector('.background-homepage').style.backgroundColor = 'black';
+    settingsContainer.style.display = 'none'; 
+});
+
+bgGreenBtn.addEventListener('click', function() {
+document.querySelector('.btn-continue').style.backgroundColor = '#07755A';
+settingsContainer.style.display = 'none'; 
+});
+
+
+bgRedBtn.addEventListener('click', function() {
+document.querySelector('.btn-continue').style.backgroundColor = 'red';
+settingsContainer.style.display = 'none';
+});
+
+bgBlueBtn.addEventListener('click', function() {
+document.querySelector('.btn-continue').style.backgroundColor = 'blue';
+settingsContainer.style.display = 'none'; 
+});
+
+document.querySelector('.text-white-btn').addEventListener('click', function() {
+    var spans = document.querySelectorAll('span');
+    spans.forEach(function(span) {
+        span.style.color = 'white';
+    });
+    settingsContainer.style.display = 'none';
+});
+
+
+document.querySelector('.text-black-btn').addEventListener('click', function() {
+    var spans = document.querySelectorAll('span');
+    spans.forEach(function(span) {
+        span.style.color = 'black';
+    });
+    settingsContainer.style.display = 'none'; 
+});
+
 // const form = document.getElementById("form_submit");
 
 // function ademeSubmit(event) {
