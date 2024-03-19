@@ -1,6 +1,6 @@
-const username = '';
-const password = '';
-const ademe_number = '2251E2193714Q'
+const username = 'coda_school_student';
+const password = 'XEUgknQ)GDCf%40K%3A%5D2T6%60c_Y%3Ddb%26%2BM9';
+let ademe_number = '2357E1112408F';
 
 async function fetchToken(username, password) {
   const result = await fetch('https://dpe-api-service-dev-xfyprtzkyq-ew.a.run.app/token', {
@@ -177,3 +177,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// const form = document.getElementById("form_submit");
+
+// function ademeSubmit(event) {
+//   const input = document.getElementById("ademe_number");
+//   const inputValue = input.value;
+//   ademe_number = inputValue;
+//   console.log(ademe_number);
+//   event.preventDefault();
+// }
+
+// form.addEventListener("submit", ademeSubmit)
