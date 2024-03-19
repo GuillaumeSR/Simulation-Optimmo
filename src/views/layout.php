@@ -11,8 +11,10 @@
     <header>
         <nav>
             <img src="https://app.optimmo-energies.com/assets/optimmo-logo.518c2cc5.svg" class="logo"></img>
+            <button id="parametres">Parametres <i class="ri-settings-3-line"></i> </button>
         </nav>
     </header>
+    
     <main>
         <?php require '../src/controllers/' . $route . '_controller.php'; ?>
     </main>
