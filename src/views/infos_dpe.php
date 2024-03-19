@@ -32,7 +32,7 @@
         <div data-v-5305adbe="" data-v-48236273="" class="relative row items-center"><!----><!----><!----><!----><!----><!----><svg data-v-5305adbe="" width="148" height="24" viewBox="0 0 148 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-5305adbe="" d="M0 2C0 0.89543 0.895431 0 2 0H139.537C140.233 0 140.879 0.362183 141.243 0.956155L147.361 10.9562C147.753 11.5968 147.753 12.4032 147.361 13.0438L141.243 23.0438C140.879 23.6378 140.233 24 139.537 24H2C0.89543 24 0 23.1046 0 22V2Z" fill="#D71D20"></path></svg><span data-v-5305adbe="" class="q-px-sm absolute dpe-label">G</span></div>
 
         <div class="circle-info">
-            <span class="letter">A</span>
+            <span class="letter">G</span>
         </div>
       </div>
     </div>
