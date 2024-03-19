@@ -15,7 +15,8 @@
             </div>
         </div>
 
-            <div class="card"> 
+
+            <div class="card">
                 <div class="container-image">
                         <img src="https://app.optimmo-energies.com/assets/dpe-example.3b4d1144.png" alt="DPE">
                         <div class="green-circle"></div>
@@ -26,8 +27,11 @@
                 </div>
             </div>
         </div>
-        <button class="btn-continue"> 
-            <span>Continuer <i class="ri-arrow-right-line"></i></span>
-        </button>
+        <a href="?page=page_dpe">
+            <button class="btn-continue"> 
+                <span>Continuer <i class="ri-arrow-right-line"></i></span>
+            </button>
+        </a>
+        
     </div> 
 </body>

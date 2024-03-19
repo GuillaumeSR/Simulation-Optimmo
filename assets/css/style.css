@@ -166,7 +166,31 @@ border: 1px solid #ccc;
 border-radius: 5px;
 width: 100%;
 }
-#parametres:hover {
+
+#settings-container {
+    display: none; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    z-index: 1000;
+}
+#settings-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #282928;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#settings-btn:hover {
     background-color: #0056b3;
 }
 .parametres-menu button {
@@ -206,3 +230,4 @@ width: 100%;
 .letter {
     color: white;
 }
+
