@@ -1,5 +1,5 @@
-const username = 'coda_school_student';
-const password = 'XEUgknQ)GDCf%40K%3A%5D2T6%60c_Y%3Ddb%26%2BM9';
+const username = '';
+const password = '';
 let ademe_number = '2357E1112408F';
 
 async function fetchToken(username, password) {
